@@ -6,19 +6,24 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use App\Models\Products;
 
 class ProductController extends Controller
 {
     public function index()
     {
-        $productList = DB::select('select * from products');
+        $productList = products::all();
+        $productList = products::orderBy('name', 'asc')->get();
+        $productList = products::orderBy('price', 'asc')->get();
+
+
 
         return view("product-list", ["listTitle" => $productList]);
     }
 
     public function show(int $id)
     {
-        $product = DB::select('select * from products where id = ?', [$id]);
-        return view("product-details", ["id" => $id], ["product" => $product[0]]);
+        $product = products::where('id', $id)->first();
+        return view("product-details", ["id" => $id], ["product" => $product]);
     }//
 }
