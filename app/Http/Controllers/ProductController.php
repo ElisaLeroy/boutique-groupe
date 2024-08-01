@@ -18,9 +18,8 @@ class ProductController extends Controller
 
     public function show(int $id)
     {
-        $products = Products::all();
+        $products = Products::where('id', $id)->get();
 
-        return view("product-details", ["id" => $id, "catalogue" => $products ]);
+        return view("product-details", ["id" => $id, "catalogue" => $products[0] ]);
     }
-
 }
