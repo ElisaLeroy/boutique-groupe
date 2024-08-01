@@ -12,12 +12,11 @@
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
                     <h1 class="text-center">{{$produit->title}}</h1>
-                    <p class="text-center text-muted"></p>
-                    <img src="{{$produit->image_url}}" class="card-img-top" alt="Product Image">
+                    <img src="{{$produit->imgURL}}" class="card-img-top" alt="Product Image">
                     <div class="card-body">
                         <h5 class="card-title">{{$produit->name}}</h5>
                         <p class="card-text">{{$produit->description}}</p>
-                        <a href="#" class="btn btn-primary">Fiche produit</a>
+                        <a href="/product/{{$produit->id}}" class="btn btn-primary">Fiche produit</a>
                     </div>
                 </div>
             </div>
