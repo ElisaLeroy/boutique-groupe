@@ -22,5 +22,5 @@ class ProductController extends Controller
 
         return view("product-details", ["id" => $id, "catalogue" => $products ]);
     }
-    
+
 }
