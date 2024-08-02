@@ -15,18 +15,15 @@ class ProductController extends Controller
         $productList = products::all();
 
         return view("product-list", ["listTitle" => $productList]);
+
     }
 
     public function show(int $id)
     {
         $product = products::where('id', $id)->first();
         return view("product-details", ["id" => $id], ["product" => $product]);
-    }
 
-    public function sortProduct(string $select = 'name')
-    {
-            return view("product-list", ["listTitle" => products::orderBy($select, 'asc')->get()]);
-        }
+    }
 
 }
 
