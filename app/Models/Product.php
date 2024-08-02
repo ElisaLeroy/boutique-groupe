@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Products extends Model
+class Product extends Model //classe,model au singulier
 {
     use HasFactory;
 
@@ -16,5 +16,7 @@ class Products extends Model
     public function formatWeight(float $gramsWeight){
         return $gramsWeight/1000;
     }
+
+
 
 }

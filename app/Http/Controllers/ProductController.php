@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Products;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -13,7 +13,8 @@ class ProductController extends Controller
     {
 
 //        Accéder à tous les produits
-        $products = Products::all();
+
+        $products = Product::all();
 
         //Trier par prix croissant
         //$products=Products::orderBy('price', 'asc')->get();
@@ -27,8 +28,8 @@ class ProductController extends Controller
 
     public function show(int $id)
     {
-        $products = Products::where('id', $id)->get();
+        $products = Product::find($id);
 
-        return view("product-details", ["id" => $id, "catalogue" => $products[0] ]);
+        return view("product-details", ["id" => $id, "catalogue" => $products ]);
     }
 }
