@@ -13,10 +13,6 @@ class ProductController extends Controller
     public function index()
     {
         $productList = products::all();
-        $productList = products::orderBy('name', 'asc')->get();
-        $productList = products::orderBy('price', 'asc')->get();
-
-
 
         return view("product-list", ["listTitle" => $productList]);
     }
@@ -25,5 +21,12 @@ class ProductController extends Controller
     {
         $product = products::where('id', $id)->first();
         return view("product-details", ["id" => $id], ["product" => $product]);
-    }//
+    }
+
+    public function sortProduct(string $select = 'name')
+    {
+            return view("product-list", ["listTitle" => products::orderBy($select, 'asc')->get()]);
+        }
+
 }
+

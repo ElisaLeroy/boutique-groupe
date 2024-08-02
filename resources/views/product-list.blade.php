@@ -18,6 +18,19 @@
             <h1 class="display-4 font-weight-bold">Product List</h1>
         </div>
     </div>
+{{--        <form action="/products/{name}" method="get">--}}
+{{--            <label for="sort"> Sort by </label>--}}
+{{--            <select name="sort" id="sort" onchange="/products/{name}">--}}
+{{--                <option name = "name" value="name" >name</option>--}}
+{{--                <option name = "price" value="price" >price</option>--}}
+{{--            </select>--}}
+{{--        </form>--}}
+    <form action="/products/name"  method="get">
+        <button type="submit">Name</button>
+    </form>
+    <form action="/products/price" method="get">
+        <button type="submit">Price</button>
+    </form>
     <div class="row mt-4">
         @foreach ($listTitle as $products)
             <div class="col-md-4 mb-4">
@@ -28,7 +41,7 @@
                         <h5 class="card-title">{{$products->name}}</h5>
                         <p class="card-text">{{$products->description}}</p>
                         <p class="card-text">{{$products->price . " €"}}</p>
-                        <a href="product/{{$products->id}}" class="btn btn-primary">View Details</a>
+                        <a href="/product/{{$products->id}}" class="btn btn-primary">View Details</a>
                     </div>
                 </div>
             </div>
