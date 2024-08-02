@@ -19,8 +19,8 @@
                 <h2 class="mt-5">{{$catalogue->name}}</h2>
                 <div class="container mt-5">
                 <ul class="list-group">
-                    <li class="list-group-item">Prix : {{$catalogue->price}} €</li>
-                    <li class="list-group-item">Poids : {{$catalogue->weight}} Kg</li>
+                    <li class="list-group-item">Prix : {{$catalogue->formatPrice($catalogue->price)}} €</li>
+                    <li class="list-group-item">Poids : {{$catalogue->formatWeight($catalogue->weight)}} Kg</li>
                     <li class="list-group-item">{{$catalogue->description}}</li>
                 </ul>
                 </div>
