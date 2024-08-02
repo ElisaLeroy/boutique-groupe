@@ -11,7 +11,15 @@ class ProductController extends Controller
 
     public function index()
     {
+//        Accéder à tous les produits
         $products = Products::all();
+
+        //Trier par prix croissant
+        //$products=Products::orderBy('price', 'asc')->get();
+
+        //Trier par ordre alphabétique des noms
+        //$products=Products::orderBy('name', 'asc')->get();
+
 
         return view("product-list", ["catalogue" => $products]);
     }
