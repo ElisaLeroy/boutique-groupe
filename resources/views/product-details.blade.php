@@ -7,10 +7,6 @@
 @foreach($datas as $value)
 <div class="m-5"><h1 class="text-center text-center">Fiche du produit </h1>
 </div>
-
-@dump($datas)
-
-
 <div class="container mt-6 ">
     <div class="row">
         <div class="col-md-6">
