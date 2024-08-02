@@ -11,6 +11,7 @@ class ProductController extends Controller
 
     public function index()
     {
+
 //        Accéder à tous les produits
         $products = Products::all();
 
