@@ -11,11 +11,11 @@
             </div>
         </div>
         <div>
-            <form action="/product/name" method="get">
+            <form action="/products/name" method="get">
                 <button type="submit" class="btn btn-primary btn-lg mt-5">SORT BY NAME</button>
             </form>
             </div><div>
-            <form action="/product/price" method="get">
+            <form action="/products/price" method="get">
                 <button type="submit" class="btn btn-primary btn-lg mt-5">SORT BY PRICE</button>
             </form>
         </div>
@@ -29,7 +29,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{$product->name}}</h5>
                             <p class="card-text">{{$product->description}}</p>
-                            <a href="product/{{$product->id}}" class="btn btn-primary">View Details</a>
+                            <a href="/product/{{$product->id}}" class="btn btn-primary">View Details</a>
 
                             <p class="card-text">{{$product->price}}</p>
                         </div>

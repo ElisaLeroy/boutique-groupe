@@ -11,24 +11,21 @@ class ProductController extends Controller
 
     public function index()
     {
-//        $data=DB::select('select * from products');
+        $data=DB::select('select * from products where id = :id' ,['id'=>$id]);
 //        $data=DB::table('products')->get();
 
-        return view("product-list", ["products" => Products::all()]);
+//        return view("product-list", ["products" => Products::all()]);
+        return view("product-list", ["products" => $data]);
+
     }
 
     public function sort(string $page = 'name')
     {
-//        if ($page == 'name') {
-//            return view("product-list", ["products" => Products::orderBy('name', 'asc' , $page)->get()]);
-//        }
-//        if ($page == 'price') {
-//            return view("product-list", ["products" => Products::orderBy('price', 'desc',  $page)->get()]);
-//        }
-            if ($page != 'name' && $page != 'sort') {
-                $page = 'name';
-            return view("product-list", ["products" => Products::orderBy($page, 'asc')->get()]);
-            }
+        if ($page != 'name' && $page != 'price') {
+            $page = 'name';
+        }
+        return view("product-list", ["products" => Products::orderBy($page, 'asc')->get()]);
+
     }
 
     public function show(int $id)
