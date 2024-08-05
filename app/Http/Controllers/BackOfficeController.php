@@ -15,8 +15,8 @@ class BackOfficeController extends Controller
     }
 
     public function createPage(){
-        $products = Product::all();
-        return view("result-add-product", ["catalogue" => $products]);
+
+        return view("result-add-product");
     }
 
     public function store(Request $request){
@@ -30,7 +30,9 @@ class BackOfficeController extends Controller
                 'price'=>$request->input('price'),
                 'description'=>$request->input('description')
 
-        ]
-        );
+        ]);
+
+        return redirect('/backoffice');
+
     }
 }

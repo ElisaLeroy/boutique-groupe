@@ -9,7 +9,7 @@
 
                     {{--FORM--}}
                     <div class="container m-3 ">
-                        <form class="row g-3" action="#" method="post">
+                        <form class="row g-3" action="" method="post">
                             @csrf
                             <h1 class="fw-light text-center mb-5">Ajouter un article</h1>
                             <div class="col-md-6">

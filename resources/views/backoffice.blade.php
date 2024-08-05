@@ -12,11 +12,11 @@
                 <div class="card">
 
                     {{--FORM--}}
-                    <form action="#">
+                    <form action="#" method="post">
                     <div class="card-body">
                         <div class="text-center d-flex justify-content-between align-items-center">
                             <h1 class="card-title m-b-0 fw-light">Éditer le catalogue</h1>
-                            <input class="btn btn-info" type="submit" formaction="backoffice/create" value="Ajouter un article">
+                            <a href="/backoffice/create" class="btn btn-info">Ajouter un article</a>
                         </div>
                     </div>
                     <div class="table-responsive">
