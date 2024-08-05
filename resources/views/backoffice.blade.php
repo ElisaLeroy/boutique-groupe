@@ -11,8 +11,8 @@
             <div class="col-12">
                 <div class="card">
 
-                    {{--FORM--}}
-                    <form action="#" method="post">
+
+
                     <div class="card-body">
                         <div class="text-center d-flex justify-content-between align-items-center">
                             <h1 class="card-title m-b-0 fw-light">Éditer le catalogue</h1>
@@ -44,14 +44,21 @@
                                     <td>{{$produit->formatPrice($produit->price)}}€</td>
                                     <td>{{$produit->quantity}}</td>
                                     <td>{{$produit->formatWeight($produit->weight)}} Kg</td>
-                                    <th><input class="btn btn-warning" type="submit" formaction="#" value="Modifier"></th>
-                                    <th><input class="btn btn-danger" type="submit" formaction="#" value="Supprimer"></th>
+                                    <form action="#" method="post">
+                                        @csrf
+                                        <th><input type="submit" class="btn btn-warning" name="{{$produit->id}}" value="Modifier"></th>
+                                    </form>
+                                    <form action="/backoffice/{{$produit->id}}" method="post">
+                                        @csrf
+                                        <th><input type="submit" class="btn btn-danger" name="" value="Supprimer"></th>
+                                    </form>
+{{--                                    <input type="hidden" name="id" value="{{$produit->id}}">--}}
                                 </tr>
                             @endforeach
 
                             </tbody>
                         </table>
-                        </form>
+
                     </div>
                 </div>
             </div>
