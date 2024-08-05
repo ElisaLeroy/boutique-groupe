@@ -18,4 +18,19 @@ class BackOfficeController extends Controller
         $products = Product::all();
         return view("result-add-product", ["catalogue" => $products]);
     }
+
+    public function store(Request $request){
+        $products = Product::create([
+            'title'=>$request->input('title'),
+                'name'=>$request->input('name'),
+                'imgURL'=>$request->input('imgURL'),
+                'weight'=>$request->input('weight'),
+                'quantity'=>$request->input('quantity'),
+                'category'=>$request->input('category'),
+                'price'=>$request->input('price'),
+                'description'=>$request->input('description')
+
+        ]
+        );
+    }
 }
