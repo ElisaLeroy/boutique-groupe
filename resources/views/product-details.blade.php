@@ -1,5 +1,14 @@
 @extends ('layout')
 @section('content')
+    <div class="container mt-4">
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+    </div>
+
+
     <link rel="stylesheet" href="/styles.css">
     <div class="m-5"><h1 class="text-center text-center">Fiche du produit {{$product->name}}</h1>
     </div>

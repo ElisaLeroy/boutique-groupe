@@ -1,5 +1,13 @@
 @extends('layoutbackoffice')
 @section('content')
+    <div class="container mt-4">
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+    </div>
+
     <style>
         .move-up {
             margin-top: -20px;
@@ -12,10 +20,10 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body text-center">
-                        <form action="/backoffice/edit" method="post">
+                        <form action="/backoffice/create" method="get">
                             {{ csrf_field() }}
                             <h5 class="card-title m-b-0">Gestion des produits</h5>
-                            <button type="submit" class="btn btn-primary position-absolute start-0 move-up" name="{{$productList}}" >Ajouter un
+                            <button type="submit" class="btn btn-primary position-absolute start-0 move-up">Ajouter un
                                 produit
                             </button>
                         </form>
@@ -47,9 +55,14 @@
                                 <tbody class="customtable">
                                 <tr>
                                     <th>
-                                        <form action="{{ route('backoffice.edit', $product->id) }}" method="get">                                            {{ csrf_field() }}
+                                        <form action="{{ route('backoffice.edit', $product->id) }}" method="get">
+                                            {{ csrf_field() }}
                                             <input type="submit" class="btn btn-primary" value="Modifier">
-                                            <input type="submit" formaction="deletepage" class="btn btn-danger" value="Supprimer">
+                                        </form>
+                                        <form action="{{ route('backoffice.destroy', $product->id) }}" method="post" onclick="return confirm('Are you sure you want to delete this product?')">
+                                            {{ csrf_field() }}
+                                            @method('DELETE')
+                                            <input type="submit" class="btn btn-danger" value="Supprimer">
                                         </form>
                                     </th>
                                     <td>{{$product->id}}</td>

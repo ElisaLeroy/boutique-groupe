@@ -1,5 +1,14 @@
 @extends('layoutbackoffice')
 @section('content')
+
+    <div class="container mt-4">
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+    </div>
+
     <div class="container mt-5">
         <div class="card">
             <div class="card-header">
@@ -8,6 +17,7 @@
             <div class="card-body">
                 <form action="{{ route('backoffice.update', $product->id) }}" method="POST">
                     @csrf
+                    @method('PUT')
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">

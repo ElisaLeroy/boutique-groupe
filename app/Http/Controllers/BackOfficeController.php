@@ -12,16 +12,10 @@ class BackOfficeController extends Controller
         $productList = products::all();
         return view("backoffice", ["productList" => $productList]);
     }
-    public function show($id)
-    {
-        $product = products::find($id);
 
-        return route('backoffice.update', $id);
-    }
     public function create()
     {
-//        $addProduct = products::create()
-
+        return view('product-add');
     }
 
     public function edit($id)
@@ -31,7 +25,7 @@ class BackOfficeController extends Controller
         return view('product-edition', compact('product'));
     }
 
-    public function store(Request $request, $id)
+    public function update(Request $request, $id)
     {
         $product = products::find($id);
 
@@ -49,6 +43,35 @@ class BackOfficeController extends Controller
         ]);
 
 
-        return redirect()->route('products.show', ['id' => $id]);
+        return redirect("/backoffice");
+    }
+
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'ref' => 'required|string|max:255',
+            'availability' => 'required|string',
+            'name' => 'required|string|max:255',
+            'image_url' => 'nullable|string', // Optional field
+            'weight' => 'required|numeric',
+            'quantity' => 'required|integer',
+            'category' => 'required|string',
+            'price' => 'required|numeric',
+            'origine' => 'nullable|string', // Optional field
+            'description' => 'nullable|string', // Optional field
+        ]);
+
+        $product = products::create($validatedData);
+
+        return redirect()->route('product.show', ['id' => $product->id])
+            ->with('success', 'Product created successfully.');
+    }
+
+    public
+    function destroy($id)
+    {
+        $product = products::find($id);
+        $product->delete();
+        return redirect('/backoffice')->with('success', 'Product deleted successfully.');
     }
 }

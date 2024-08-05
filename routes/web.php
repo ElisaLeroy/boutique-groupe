@@ -10,16 +10,19 @@ use \resources\views\backoffice;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('product', [ProductController::class, 'index']);
 Route::get('products/{select}', [ProductController::class, 'sortProduct']);
-Route::get('product/{id}', [ProductController::class, 'show']);
+Route::get('product/{id}', [ProductController::class, 'show'])->name('product.show');
 Route::get('cart', [CartController::class, 'index']);
 
 
 
 Route::get('backoffice', [BackofficeController::class, 'index']);
 Route::get('backoffice/edit/{id}', [BackofficeController::class, 'edit'])->name('backoffice.edit');
-Route::post('backoffice/update/{id}', [BackofficeController::class, 'store'])->name('backoffice.update');
+Route::put('backoffice/update/{id}', [BackofficeController::class, 'update'])->name('backoffice.update');
 
-Route::get('backoffice/{id}', [BackOfficeController::class, 'show'])->name('products.show');
+Route::get('/backoffice/create', [BackofficeController::class, 'create']);
+Route::post('backoffice/product/store', [BackofficeController::class, 'store'])->name('backoffice.store');
+
+Route::delete('backoffice/update/{id}', [BackofficeController::class, 'destroy'])->name('backoffice.destroy');
 
 
 
