@@ -44,16 +44,16 @@
                                     <td>{{$produit->formatPrice($produit->price)}}€</td>
                                     <td>{{$produit->quantity}}</td>
                                     <td>{{$produit->formatWeight($produit->weight)}} Kg</td>
-                                    <form action="#" method="post">
+{{--                                    <form action="#" method="post">--}}
+{{--                                        @csrf--}}
+{{--                                        --}}
+{{--                                        <th><input type="submit" class="btn btn-warning" name="{{$produit->id}}" value="Modifier" onsubmit="Êtes-vous sûr de vouloir supprimer ce produit ?"></th>--}}
+{{--                                    </form>--}}
+                                    <form action="/backoffice/{{$produit->id}}" method="post" onclick="return confirm('t es sûre ?????')">
                                         @csrf
                                         @method('DELETE')
-                                        <th><input type="submit" class="btn btn-warning" name="{{$produit->id}}" value="Modifier" onsubmit="Êtes-vous sûr de vouloir supprimer ce produit ?"></th>
-                                    </form>
-                                    <form action="/backoffice/{{$produit->id}}" method="post">
-                                        @csrf
                                         <th><input type="submit" class="btn btn-danger" name="" value="Supprimer"></th>
                                     </form>
-{{--                                    <input type="hidden" name="id" value="{{$produit->id}}">--}}
                                 </tr>
                             @endforeach
 
