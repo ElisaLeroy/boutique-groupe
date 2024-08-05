@@ -6,13 +6,13 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
-use App\Models\Products;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
     public function index()
     {
-        $productList = products::all();
+        $productList = Product::all();
 
         return view("product-list", ["listTitle" => $productList]);
 
@@ -20,7 +20,7 @@ class ProductController extends Controller
 
     public function show(int $id)
     {
-        $product = products::where('id', $id)->first();
+        $product = Product::where('id', $id)->first();
         return view("product-details", ["id" => $id], ["product" => $product]);
 
     }

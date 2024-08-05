@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Products;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class BackOfficeController extends Controller
 {
     public function index()
     {
-        $productList = products::all();
+        $productList = Product::all();
         return view("backoffice", ["productList" => $productList]);
     }
 
@@ -20,14 +20,18 @@ class BackOfficeController extends Controller
 
     public function edit($id)
     {
-        $product = products::find($id);
+        $product = Product::find($id);
 
         return view('product-edition', compact('product'));
     }
 
     public function update(Request $request, $id)
     {
-        $product = products::find($id);
+        $product = Product::findOrFail($id);
+
+//        if($product == null){
+//            abort(404);
+//        }
 
         $product->update([
             'ref' => $request->input('ref'),
@@ -61,7 +65,7 @@ class BackOfficeController extends Controller
             'description' => 'nullable|string', // Optional field
         ]);
 
-        $product = products::create($validatedData);
+        $product = Product::create($validatedData);
 
         return redirect()->route('product.show', ['id' => $product->id])
             ->with('success', 'Product created successfully.');
@@ -70,7 +74,7 @@ class BackOfficeController extends Controller
     public
     function destroy($id)
     {
-        $product = products::find($id);
+        $product = Product::find($id);
         $product->delete();
         return redirect('/backoffice')->with('success', 'Product deleted successfully.');
     }
