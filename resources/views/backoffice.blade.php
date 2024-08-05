@@ -13,6 +13,9 @@
                         <h5 class="card-title m-b-0">Gestionaire de produits</h5>
                     </div>
                     <div class="table-responsive">
+                        <form action="/backoffice/create" method="get">
+                            <button type="submit">ADD</button>
+                        </form>
                         <table class="table">
                             <thead class="thead-light">
                             <tr>
@@ -37,8 +40,13 @@
 
                                 <tr>
                                 <th>
-                                    <form action="/backoffice/{{$value->id}}">
+                                    <form action="/backoffice/edit/{{$value->id}}">
                                         <button>Modifier</button>
+                                    </form>
+                                    <form action="/backoffice/delete/{{$value->id}}" method="post">
+                                        @csrf
+                                        @method('DELETE') <!-- Utilisé pour indiquer que la requête est de type DELETE -->
+                                        <button type="submit">Delete</button>
                                     </form>
                                 </th>
                                 <td>{{$value->id}}</td>

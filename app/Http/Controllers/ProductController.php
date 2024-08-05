@@ -11,11 +11,11 @@ class ProductController extends Controller
 
     public function index()
     {
-        $data=DB::select('select * from products where id = :id' ,['id'=>$id]);
+//        $data=DB::select('select * from products where id = :id' ,['id'=>$id]);
 //        $data=DB::table('products')->get();
 
-//        return view("product-list", ["products" => Products::all()]);
-        return view("product-list", ["products" => $data]);
+        return view("product-list", ["products" => Products::all()]);
+//        return view("product-list", ["products" => $data]);
 
     }
 
