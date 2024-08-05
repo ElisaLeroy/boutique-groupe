@@ -48,5 +48,26 @@ class BackOfficeController extends Controller
         return view("result-update-product", ["id" => $id, "catalogue" => $products ]);
     }
 
+    public function update(Request $request, int $id){
+
+        $product = Product::find($id);
+
+        $data = [
+            'title'=>$request->input('title'),
+            'name'=>$request->input('name'),
+            'imgURL'=>$request->input('imgURL'),
+            'weight'=>$request->input('weight'),
+            'quantity'=>$request->input('quantity'),
+            'category'=>$request->input('category'),
+            'price'=>$request->input('price'),
+            'description'=>$request->input('description'),
+            'availability'=>$request->input('availability')
+        ];
+
+        $product->update($data);
+
+        return redirect("/backoffice");
+
+    }
 
 }

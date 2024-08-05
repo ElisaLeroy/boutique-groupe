@@ -5,12 +5,13 @@
     <div class="container bg-white">
         <div class="row ">
             <div class="col-12">
-                <div class="container  ">
+                <div class="container">
 
                     {{--FORM--}}
                     <div class="container m-3 ">
-                        <form class="row g-3" action="/backoffice/create" method="post">
+                        <form class="row g-3" action="/backoffice/update/{{$catalogue->id}}" method="post">
                             @csrf
+                            @method('PUT')
                             <h1 class="fw-light text-center mb-5">Modifier un article</h1>
                             <div class="col-md-6">
                                 <label for="title" class="form-label">Catégorie</label>
@@ -55,7 +56,7 @@
 
 
                             <div class="col-12">
-                                <button type="submit" class="btn btn-info">Ajouter un article</button>
+                                <button type="submit" class="btn btn-info">Enregistrer les modifications</button>
                             </div>
                         </form>
                     </div>

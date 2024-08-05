@@ -20,6 +20,7 @@ Route::delete('backoffice/{id}', [BackOfficeController::class,'delete']);
 
 
 Route::get('/backoffice/update/{id}', [BackOfficeController::class,'updatePage']);
+Route::put('/backoffice/update/{id}', [BackOfficeController::class,'update']);
 
 
 
