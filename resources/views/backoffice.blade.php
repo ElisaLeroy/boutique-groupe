@@ -46,7 +46,8 @@
                                     <td>{{$produit->formatWeight($produit->weight)}} Kg</td>
                                     <form action="#" method="post">
                                         @csrf
-                                        <th><input type="submit" class="btn btn-warning" name="{{$produit->id}}" value="Modifier"></th>
+                                        @method('DELETE')
+                                        <th><input type="submit" class="btn btn-warning" name="{{$produit->id}}" value="Modifier" onsubmit="Êtes-vous sûr de vouloir supprimer ce produit ?"></th>
                                     </form>
                                     <form action="/backoffice/{{$produit->id}}" method="post">
                                         @csrf

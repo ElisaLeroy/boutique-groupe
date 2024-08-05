@@ -36,7 +36,7 @@ class BackOfficeController extends Controller
     }
 
     public function delete(Request $request, int $id){
-        $productToDelete = Product::findOrFail($id); //ici on identifie l'id du produit qu'on voudra supprimer ensuite grâce à l'input hidden dont le name es 'id'
+        $productToDelete = Product::findOrFail($id);        //ici on identifie l'id du produit qu'on voudra supprimer ensuite grâce à l'input hidden dont le name es 'id'
         $productToDelete->delete();
 
         return redirect('/backoffice');
