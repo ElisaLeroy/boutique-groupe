@@ -12,11 +12,13 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body text-center">
-                        <form action="#" typeof="submit">
+                        <form action="/backoffice/edit" method="post">
+                            {{ csrf_field() }}
                             <h5 class="card-title m-b-0">Gestion des produits</h5>
-                            <button type="submit" class="btn btn-primary position-absolute start-0 move-up">Ajouter un
+                            <button type="submit" class="btn btn-primary position-absolute start-0 move-up" name="{{$productList}}" >Ajouter un
                                 produit
                             </button>
+                        </form>
                     </div>
                     <div class="table-responsive">
                         <table class="table">
@@ -41,17 +43,18 @@
                                 <th scope="col">Description</th>
                             </tr>
                             </thead>
-                            @foreach($listTitle as $product)
-
+                            @foreach($productList as $product)
                                 <tbody class="customtable">
                                 <tr>
                                     <th>
-                                        <input type="submit" class="btn btn-primary" value="Modifier">
-                                        <input type="submit" class="btn btn-danger" value="Supprimer">
+                                        <form action="{{ route('backoffice.edit', $product->id) }}" method="get">                                            {{ csrf_field() }}
+                                            <input type="submit" class="btn btn-primary" value="Modifier">
+                                            <input type="submit" formaction="deletepage" class="btn btn-danger" value="Supprimer">
+                                        </form>
                                     </th>
                                     <td>{{$product->id}}</td>
-                                    <td>{{$product->Ref}}</td>
-                                    <td>{{$product->Availability}}</td>
+                                    <td>{{$product->ref}}</td>
+                                    <td>{{$product->availability}}</td>
                                     <td>{{$product->name}}</td>
                                     <td><img src="{{$product->image_url}}" class="img-fluid" alt="{{$product->name}}">
                                     </td>

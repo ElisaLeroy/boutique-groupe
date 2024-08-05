@@ -7,5 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Products extends Model
 {
+
     use HasFactory;
+    public $timestamps = false;
+
+    protected $fillable = [
+        'ref',
+        'availability',
+        'name',
+        'image_url',
+        'weight',
+        'quantity',
+        'category',
+        'price',
+        'origine',
+        'description',
+    ];
 }
