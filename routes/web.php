@@ -19,4 +19,9 @@ Route::post('backoffice/create', [BackOfficeController::class,'store']);
 Route::delete('backoffice/{id}', [BackOfficeController::class,'delete']);
 
 
+Route::get('/backoffice/update/{id}', [BackOfficeController::class,'updatePage']);
+
+
+
+
 
