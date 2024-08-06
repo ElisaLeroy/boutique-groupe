@@ -2,18 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Product;
+use Illuminate\View\View;
 
 class ProductController extends Controller
 {
-    public $productList = [1,2,3,4,5,6,7,8,9,10];
-    public function index()
+    public function indexOrderedByName() :View
     {
-        return view("product-list", ["listTitle" => $this->productList]);
+         $products = Product::orderBy('name')->get();
+         return view("product-list", ["catalog" => $products]);
+    }
+    public function indexOrderedByPrice() :View
+    {
+         $products = Product::orderBy('price')->get();
+         return view("product-list", ["catalog" => $products]);
     }
 
-    public function show(int $id)
+    public function show(int $id) :View
     {
-        return view("product-details", ["id" => $id]);
-    }//
+        return view("product-details", ['product'=>Product::find($id)]);
+
+
+    }
 }
