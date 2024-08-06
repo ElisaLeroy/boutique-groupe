@@ -41,15 +41,15 @@ class BackOfficeController extends Controller
     {
         $request->validate([
 
-            'title' => 'required|max:64',
-            'name' => 'required|max:256',
-            'imgURL' => 'required|max:256',
-            'weight' => 'required|decimal:10.0',
-            'quantity' => 'required|int',
-            'category' => 'required|int',
-            'price' => 'required|decimal:10.0',
-            'description' => 'required|max:128',
-            'availability' => 'nullable|int'
+            'title' => 'required',
+            'name' => 'required',
+            'imgURL' => 'required',
+            'weight' => 'required',
+            'quantity' => 'required',
+            'category' => 'required',
+            'price' => 'required',
+            'description' => 'required',
+            'availability' => 'nullable'
         ]);
 
 

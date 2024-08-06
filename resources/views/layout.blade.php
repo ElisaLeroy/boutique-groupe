@@ -22,10 +22,10 @@
                         <a class="nav-link active fs-5" aria-current="page" href="{{'/'}}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active fs-5" aria-current="page" href="{{'cart'}}">Cart</a>
+                        <a class="nav-link active fs-5" aria-current="page" href="{{url('/cart')}}">Cart</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fs-5" href="{{'product'}}">Produit</a>
+                        <a class="nav-link fs-5" href="{{url('/product')}}">Produit</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link disabled fs-5" aria-disabled="true">Disabled</a>
