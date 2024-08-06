@@ -73,7 +73,7 @@
                                     </td>
                                     <td>{{$product->weight}}</td>
                                     <td>{{$product->quantity}}</td>
-                                    <td>{{$product->category}}</td>
+                                    <td>{{$product->category_id}}</td>
                                     <td>{{$product->price}}</td>
                                     <td>{{$product->origine}}</td>
                                     <td>{{$product->description}}</td>

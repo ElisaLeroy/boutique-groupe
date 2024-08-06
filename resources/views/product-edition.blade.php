@@ -45,8 +45,8 @@
                                 <input type="text" name="quantity" class="form-control" id="quantity" value="{{ $product->quantity }}" required>
                             </div>
                             <div class="form-group">
-                                <label for="category">Catégorie</label>
-                                <input type="text" name="category" class="form-control" id="category" value="{{ $product->category }}" required>
+                                <label for="category_id">Catégorie</label>
+                                <input type="text" name="category_id" class="form-control" id="category_id" value="{{ $product->category_id }}" required>
                             </div>
                             <div class="form-group">
                                 <label for="price">Prix</label>
@@ -60,7 +60,15 @@
                                 <label for="description">Description</label>
                                 <textarea name="description" class="form-control" id="description" rows="5" required>{{ $product->description }}</textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary">Mettre à jour le produit</button>
+                            <button type="submit" class="btn btn-primary" @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif>Mettre à jour le produit</button>
                         </div>
                         <div class="col-md-6">
                             <table class="table table-bordered">
@@ -91,7 +99,7 @@
                                 </tr>
                                 <tr>
                                     <th>Catégorie</th>
-                                    <td>{{ $product['category'] }}</td>
+                                    <td>{{ $product['category_id'] }}</td>
                                 </tr>
                                 <tr>
                                     <th>Prix</th>

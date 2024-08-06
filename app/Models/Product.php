@@ -18,7 +18,7 @@ class Product extends Model
         'image_url',
         'weight',
         'quantity',
-        'category',
+        'category_id',
         'price',
         'origine',
         'description',

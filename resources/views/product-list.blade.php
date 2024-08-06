@@ -25,12 +25,25 @@
 {{--                <option name = "price" value="price" >price</option>--}}
 {{--            </select>--}}
 {{--        </form>--}}
-    <form action="/products/name"  method="get">
-        <button type="submit">Name</button>
-    </form>
-    <form action="/products/price" method="get">
-        <button type="submit">Price</button>
-    </form>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col text-center">
+                <form action="/products/name" method="get">
+                    <button type="submit" class="btn btn-warning">Name</button>
+                </form>
+                <form action="/products/price" method="get">
+                    <button type="submit" class="btn btn-danger">Price</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <form action="/categories" method="get">
+                    <button type="submit" class="btn btn-success">See all categories</button>
+                </form>
+            </div>
+        </div>
+    </div>
     <div class="row mt-4">
         @foreach ($listTitle as $products)
             <div class="col-md-4 mb-4">

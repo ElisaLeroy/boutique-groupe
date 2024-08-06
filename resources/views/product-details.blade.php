@@ -33,7 +33,7 @@
                             <li class="list-group-item">{{$product->price . "€"}}</li>
                         </ul>
                     </div>
-                    <form action="/cart" method="post">
+                    <form action="/cart" method="get">
                         <button type="submit" class="btn btn-primary btn-lg mt-5">Ajouter au panier</button>
                     </form>
                 </div>

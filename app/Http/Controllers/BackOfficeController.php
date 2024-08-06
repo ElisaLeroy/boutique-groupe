@@ -27,6 +27,19 @@ class BackOfficeController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'ref' => 'required|string|max:255',
+            'availability' => 'required|boolean|min:0',
+            'name' => 'required|string|max:255',
+            'image_url' => 'nullable|url',
+            'weight' => 'required|numeric|min:0',
+            'quantity' => 'required|integer|min:1',
+            'category_id' => 'required|string|max:255',
+            'price' => 'required|numeric|min:0',
+            'origine' => 'required|string|max:255',
+            'description' => 'nullable|string',
+        ]);
+
         $product = Product::findOrFail($id);
 
 //        if($product == null){
@@ -47,7 +60,7 @@ class BackOfficeController extends Controller
         ]);
 
 
-        return redirect("/backoffice");
+        return redirect("/backoffice")->with('success', 'Product updated successfully!');
     }
 
     public function store(Request $request)
@@ -56,13 +69,13 @@ class BackOfficeController extends Controller
             'ref' => 'required|string|max:255',
             'availability' => 'required|string',
             'name' => 'required|string|max:255',
-            'image_url' => 'nullable|string', // Optional field
-            'weight' => 'required|numeric',
-            'quantity' => 'required|integer',
-            'category' => 'required|string',
-            'price' => 'required|numeric',
-            'origine' => 'nullable|string', // Optional field
-            'description' => 'nullable|string', // Optional field
+            'image_url' => 'nullable|string',
+            'weight' => 'required|numeric|min:0',
+            'quantity' => 'required|integer|min:0',
+            'category_id' => 'required|string',
+            'price' => 'required|numeric|min:0',
+            'origine' => 'nullable|string',
+            'description' => 'nullable|string',
         ]);
 
         $product = Product::create($validatedData);
