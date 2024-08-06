@@ -25,4 +25,12 @@ class Product extends Model
     ];
 
 //    protected $guarded = ['id', 'created_at', 'updated_at'];
+
+public function categories(){
+    return $this->belongsTo(Category::class);
+}
+public function order_product(){
+    return $this->belongstomany(Order::class)->withPivot('quantity');
+}
+
 }
