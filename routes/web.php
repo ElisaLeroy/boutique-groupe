@@ -15,11 +15,11 @@ Route::get('product/{id}', [ProductController::class, 'show']);
 
 Route::get('cart', [CartController::class,'index']);
 
-Route::get('backoffice', [BackofficeController::class, 'index'])->name('backoffice');
-Route::post('backoffice', [BackofficeController::class, 'create'])->name('backoffice');
+Route::get('backoffice', [BackofficeController::class, 'index'])->name('backofficelanding');
+Route::post('backoffice', [BackofficeController::class, 'store'])->name('backoffice');
 
 Route::get('backoffice/edit/{id}', [BackofficeController::class, 'edit']);
-Route::post('backoffice/edit/{id}', [BackofficeController::class, 'update'])->name('edit');
+Route::put('backoffice/edit/{id}', [BackofficeController::class, 'update'])->name('edit');
 Route::delete('backoffice/delete/{id}', [BackofficeController::class, 'destroy'])->name('destroy');
 
 Route::get('backoffice/create', [BackofficeController::class, 'create'])->name('create');

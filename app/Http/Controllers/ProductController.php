@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Products;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -14,7 +14,7 @@ class ProductController extends Controller
 //        $data=DB::select('select * from products where id = :id' ,['id'=>$id]);
 //        $data=DB::table('products')->get();
 
-        return view("product-list", ["products" => Products::all()]);
+        return view("product-list", ["products" => Product::all()]);
 //        return view("product-list", ["products" => $data]);
 
     }
@@ -24,7 +24,7 @@ class ProductController extends Controller
         if ($page != 'name' && $page != 'price') {
             $page = 'name';
         }
-        return view("product-list", ["products" => Products::orderBy($page, 'asc')->get()]);
+        return view("product-list", ["products" => Product::orderBy($page, 'asc')->get()]);
 
     }
 
@@ -33,7 +33,7 @@ class ProductController extends Controller
 //        $datas=DB::select('select * from products WHERE id = :id', ['id' => $id]);
 //        $datas=DB::table('products')->where('id', '=', $id)->get();
 
-        return view("product-details", ["datas" => Products::where('id', $id)->get()
+        return view("product-details", ["datas" => Product::where('id', $id)->get()
         ]);
     }//
 }

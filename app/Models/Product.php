@@ -3,7 +3,7 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-class Products extends Model
+class Product extends Model
 {
     public $timestamps = false; /* ! If not set to false, creates SQL error - timestamps not in the DB */
     use HasFactory; /* ? Model factories are a way to create fake data for your models, which is useful for testing and database seeding. */
