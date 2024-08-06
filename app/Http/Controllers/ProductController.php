@@ -25,5 +25,11 @@ class ProductController extends Controller
 
     }
 
+    public function sortProduct(int $id)
+    {
+        $product = Product::where('id', $id)->first();
+        return view("product-list", ["id" => $id], ["product" => $product]);
+    }
+
 }
 
