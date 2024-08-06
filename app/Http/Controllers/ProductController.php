@@ -3,17 +3,33 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
-    public $productList = [1,2,3,4,5,6,7,8,9,10];
+
     public function index()
     {
-        return view("product-list", ["listTitle" => $this->productList]);
+
+//        Accéder à tous les produits
+
+        $products = Product::all();
+
+        //Trier par prix croissant
+        //$products=Products::orderBy('price', 'asc')->get();
+
+        //Trier par ordre alphabétique des noms
+        //$products=Products::orderBy('name', 'asc')->get();
+
+
+        return view("product-list", ["catalogue" => $products]);
     }
 
     public function show(int $id)
     {
-        return view("product-details", ["id" => $id]);
-    }//
+        $products = Product::findOrFail($id);
+
+        return view("product-details", ["id" => $id, "catalogue" => $products ]);
+    }
 }
