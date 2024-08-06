@@ -12,6 +12,10 @@ class Product extends Model //classe,model au singulier
 
     protected $guarded=[];
 
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
+
     public function formatPrice(float $centsPrice){
         return $centsPrice/100;
     }
