@@ -6,9 +6,8 @@
     @dump($_POST)
         <div class="m-5"><h1 class="text-center text-center">Fiche du produit </h1>
         </div>
-        <form action="/backoffice/edit/{{$product->id}}" method="post">
+        <form action="/backoffice/customers/edit/{{}}" method="post">
             @csrf
-            @method('PUT')
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>

@@ -33,7 +33,7 @@ class ProductController extends Controller
 //        $datas=DB::select('select * from products WHERE id = :id', ['id' => $id]);
 //        $datas=DB::table('products')->where('id', '=', $id)->get();
 
-        return view("product-details", ["datas" => Product::where('id', $id)->get()
+        return view("product-details", ["products" => Product::findOrFail($id)
         ]);
     }//
 }

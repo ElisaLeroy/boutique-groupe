@@ -32,6 +32,9 @@
                     <li class="nav-item">
                         <a class="nav-link fs-5" href="{{'/backoffice'}}">Backoffice</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-5" href="{{'/backoffice/customers'}}">Customers</a>
+                    </li>
 
                 </ul>
                 <form class="d-flex" role="search">
