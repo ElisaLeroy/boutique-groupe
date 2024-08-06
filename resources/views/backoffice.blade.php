@@ -5,14 +5,9 @@
 
 
     <div class="container">
-
-
         <div class="row">
             <div class="col-12">
                 <div class="card">
-
-
-
                     <div class="card-body">
                         <div class="text-center d-flex justify-content-between align-items-center">
                             <h1 class="card-title m-b-0 fw-light">Éditer le catalogue</h1>
@@ -47,7 +42,6 @@
                                     <td>
                                     <a href="/backoffice/update/{{$produit->id}}" class="btn btn-warning">Modifier</a>
                                     </td>
-
                                     <form action="/backoffice/{{$produit->id}}" method="post" onclick="return confirm('t es sûre ?????')">
                                         @csrf
                                         @method('DELETE')
@@ -55,25 +49,10 @@
                                     </form>
                                 </tr>
                             @endforeach
-
                             </tbody>
                         </table>
-
                     </div>
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 @endsection
