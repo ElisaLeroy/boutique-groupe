@@ -29,5 +29,7 @@ Route::post('backoffice/customers', [BackofficeController::class, 'addcustomer']
 
 Route::get('backoffice/customers/edit/{id}', [BackofficeController::class, 'customer'])->name('editcustomer');
 Route::put('backoffice/customers/edit/{id}', [BackofficeController::class, 'updatecustomer'])->name('updatecustomer');
+Route::delete('backoffice/customers/delete/{id}', [BackofficeController::class, 'destroycustomer'])->name('destroycustomer');
+
 
 

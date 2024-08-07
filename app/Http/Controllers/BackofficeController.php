@@ -148,6 +148,10 @@ class BackofficeController extends Controller
 
         return redirect()->route('editcustomer', ['id' => $id])->with('success', 'Customer updated successfully');
     }
-
+    public function destroycustomer($id)
+    {
+        Customer::find($id)->delete();
+        return redirect()->route('customers');
+    }
 
 }

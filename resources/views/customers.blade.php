@@ -43,6 +43,11 @@
                     <form action="/backoffice/customers/edit/{{$info->id}}">
                         <button>Modifier</button>
                     </form>
+                    <form action="/backoffice/customers/delete/{{$info->id}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">Delete</button>
+                    </form>
                 </td>
             </tr>
             @endforeach
