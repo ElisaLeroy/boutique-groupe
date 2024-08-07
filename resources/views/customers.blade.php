@@ -22,7 +22,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($dude as $info)
+            @foreach($client as $info)
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -40,9 +40,8 @@
                 <td>{{$info->postal_code}}</td>
                 <td>{{$info->city}}</td>
                 <td>
-                    <form action="/backoffice/customers/edit/{{$info->id}}" method="post">
-                        @csrf
-                        <button type="submit">Change</button>
+                    <form action="/backoffice/customers/edit/{{$info->id}}">
+                        <button>Modifier</button>
                     </form>
                 </td>
             </tr>

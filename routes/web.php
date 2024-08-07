@@ -19,13 +19,15 @@ Route::get('backoffice', [BackofficeController::class, 'index'])->name('backoffi
 Route::post('backoffice', [BackofficeController::class, 'store'])->name('backoffice');
 
 Route::get('backoffice/edit/{id}', [BackofficeController::class, 'edit']);
-Route::put('backoffice/edit/{id}', [BackofficeController::class, 'update'])->name('edit');
+Route::put('backoffice/edit/{id}', [BackofficeController::class, 'update'])->name('update');
 Route::delete('backoffice/delete/{id}', [BackofficeController::class, 'destroy'])->name('destroy');
 
 Route::get('backoffice/create', [BackofficeController::class, 'create'])->name('create');
 
 Route::get('backoffice/customers', [BackofficeController::class, 'showcustomer'])->name('customers');
 Route::post('backoffice/customers', [BackofficeController::class, 'addcustomer'])->name('customers');
-Route::post('backoffice/customers/edit/{id}', [BackofficeController::class, 'editcustomer'])->name('customersedit');
+
+Route::get('backoffice/customers/edit/{id}', [BackofficeController::class, 'customer'])->name('editcustomer');
+Route::put('backoffice/customers/edit/{id}', [BackofficeController::class, 'updatecustomer'])->name('updatecustomer');
 
 

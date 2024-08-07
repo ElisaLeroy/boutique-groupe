@@ -53,7 +53,7 @@ class BackofficeController extends Controller
             'category' => $request->input('category'),
             'taste' => $request->input('taste')
         ]);
-        return redirect()->route('edit', ['id' => $id])->with('success', 'Product updated successfully');
+        return redirect()->route('update', ['id' => $id])->with('success', 'Product updated successfully');
     }
 
     public function destroy($id)
@@ -96,9 +96,16 @@ class BackofficeController extends Controller
         ]);
         return redirect()->route('backofficelanding');
     }
+
+    //Customer part
+    public function customer($id)
+    {
+
+        return view('customer-edit', ["client" => customer::findorfail($id)]);
+    }
     function showcustomer()
     {
-        return view('customers', ["dude" => customer::all()]);
+        return view('customers', ["client" => customer::all()]);
     }
     function addcustomer(Request $request)
     {
@@ -120,24 +127,27 @@ class BackofficeController extends Controller
         ]);
         return redirect()->route('customers');
     }
-    function editcustomer(Request $request, $id)
+    public function updatecustomer(Request $request, $id)
     {
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
-            'address' => 'required|max:255',
+            'address' => 'required',
             'postal_code' => 'required|numeric',
-            'city' => 'required|string|max:255',
+            'city' => 'required',
         ]);
-        $dude = Customer::findOrFail($id);
-        $dude->update([
+
+        $client = Customer::findOrFail($id);
+        $client->update([
             'first_name' => $request->input('first_name'),
             'last_name' => $request->input('last_name'),
             'address' => $request->input('address'),
             'postal_code' => $request->input('postal_code'),
             'city' => $request->input('city'),
-
         ]);
-        return redirect()->route('customersedit', ['id' => $id])->with('success', 'Product updated successfully');
+
+        return redirect()->route('editcustomer', ['id' => $id])->with('success', 'Customer updated successfully');
     }
+
+
 }

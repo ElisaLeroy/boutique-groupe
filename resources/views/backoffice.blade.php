@@ -45,7 +45,7 @@
                                     </form>
                                     <form action="/backoffice/delete/{{$value->id}}" method="post">
                                         @csrf
-                                        @method('DELETE') <!-- Utilisé pour indiquer que la requête est de type DELETE -->
+                                        @method('DELETE')
                                         <button type="submit">Delete</button>
                                     </form>
                                 </th>

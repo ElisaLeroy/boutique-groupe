@@ -3,7 +3,6 @@
 @endsection
 
 @section('content')
-    @dump($_POST)
         <div class="m-5"><h1 class="text-center text-center">Fiche du produit </h1>
         </div>
         <form action="/backoffice/edit/{{$product->id}}" method="post">
