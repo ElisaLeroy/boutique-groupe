@@ -11,10 +11,15 @@ class Order extends Model
 
     protected $fillable = ['payment', 'customer_id', 'number', 'date'];
 
-    public function customer(){
+    public function customer()
+    {
         return $this->belongsTo(Customer::class);
     }
-    public function order_product(){
-        return $this->belongstomany(Product::class)->withPivot('quantity');
+
+    public function products()
+    {
+        return $this->belongstomany(Product::class, 'order_product')
+            ->withPivot('quantity')
+            ->withTimestamps();
     }
 }

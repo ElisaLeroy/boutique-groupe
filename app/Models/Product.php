@@ -29,8 +29,10 @@ class Product extends Model
 public function categories(){
     return $this->belongsTo(Category::class);
 }
-public function order_product(){
-    return $this->belongstomany(Order::class)->withPivot('quantity');
+public function orders(){
+    return $this->belongstomany(Order::class, 'order_product')
+        ->withPivot('quantity')
+        ->withTimestamps();
 }
 
 }

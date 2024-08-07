@@ -9,12 +9,13 @@ use \App\Http\Controllers\CategoryController;
 use \resources\views\backoffice;
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('product', [ProductController::class, 'index']);
+Route::get('product', [ProductController::class, 'index'])->name('product.index');
 Route::get('products/{select}', [ProductController::class, 'sortProduct']);
 Route::get('product/{id}', [ProductController::class, 'show'])->name('product.show');
-Route::get('cart', [CartController::class, 'index']);
 Route::get('categories', [CategoryController::class, 'index']);
 
+
+Route::post('cart', [CartController::class, 'store'])->name('cart.store');
 
 
 Route::get('backoffice', [BackOfficeController::class, 'index']);
