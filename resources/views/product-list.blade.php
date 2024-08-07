@@ -18,17 +18,43 @@
             <h1 class="display-4 font-weight-bold">Product List</h1>
         </div>
     </div>
+{{--        <form action="/products/{name}" method="get">--}}
+{{--            <label for="sort"> Sort by </label>--}}
+{{--            <select name="sort" id="sort" onchange="/products/{name}">--}}
+{{--                <option name = "name" value="name" >name</option>--}}
+{{--                <option name = "price" value="price" >price</option>--}}
+{{--            </select>--}}
+{{--        </form>--}}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col text-center">
+                <form action="/products/name" method="get">
+                    <button type="submit" class="btn btn-warning">Name</button>
+                </form>
+                <form action="/products/price" method="get">
+                    <button type="submit" class="btn btn-danger">Price</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <form action="/categories" method="get">
+                    <button type="submit" class="btn btn-success">See all categories</button>
+                </form>
+            </div>
+        </div>
+    </div>
     <div class="row mt-4">
-        @foreach ($listTitle as $products => $id)
+        @foreach ($listTitle as $products)
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
-                    <h1 class="text-center">{{$products}}</h1>
-                    <p class="text-center text-muted">Browse our exclusive collection of products</p>
-                    <img src="https://via.placeholder.com/100" class="card-img-top" alt="Product Image">
+                    <h1 class="text-center">{{$products->name}}</h1>
+                    <img src="{{$products->image_url}}" class="card-img-top" alt="Product Image">
                     <div class="card-body">
-                        <h5 class="card-title">Product Name</h5>
-                        <p class="card-text">Brief description of the product.</p>
-                        <a href="product/{{$products}}" class="btn btn-primary">View Details</a>
+                        <h5 class="card-title">{{$products->name}}</h5>
+                        <p class="card-text">{{$products->description}}</p>
+                        <p class="card-text">{{$products->price . " €"}}</p>
+                        <a href="/product/{{$products->id}}" class="btn btn-primary">View Details</a>
                     </div>
                 </div>
             </div>

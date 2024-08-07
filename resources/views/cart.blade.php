@@ -1,9 +1,7 @@
-@extends('layout');
-
-@section('content');
+@extends('layout')
+@section('content')
 
 <h1>Panier</h1>
-
 
 
 <h2>Veuillez vérifier le contenu de votre panier :</h2>

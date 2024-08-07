@@ -3,17 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
-    public $productList = [1,2,3,4,5,6,7,8,9,10];
     public function index()
     {
-        return view("product-list", ["listTitle" => $this->productList]);
+        $productList = Product::all();
+
+        return view("product-list", ["listTitle" => $productList]);
+
     }
 
     public function show(int $id)
     {
-        return view("product-details", ["id" => $id]);
-    }//
+        $product = Product::where('id', $id)->first();
+        return view("product-details", ["id" => $id], ["product" => $product]);
+
+    }
+
+    public function sortProduct(string $select = 'name')
+    {
+        return view("product-list", ["listTitle" => Product::orderBy($select, 'asc')->get()]);
+    }
 }
+
