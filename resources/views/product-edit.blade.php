@@ -59,12 +59,8 @@
                                         <li class="list-group-item">quantity : <br><input type="text" name="quantity"
                                                                                           value="{{$product->quantity}}">
                                         </li>
-                                        <li class="list-group-item">availability : <br><input type="text"
-                                                                                              name="availability"
-                                                                                              value="{{$product->availability}}">
-                                        </li>
-                                        <li class="list-group-item">category : <br><input type="text" name="category"
-                                                                                          value="{{$product->category}}">
+                                        <li class="list-group-item">category_id : <br><input type="text" name="category_id"
+                                                                                          value="{{$product->category_id}}">
                                         </li>
                                         <li class="list-group-item">taste : <br><input type="text" name="taste"
                                                                                        value="{{$product->taste}}">

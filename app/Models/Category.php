@@ -5,11 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class customer extends Model
+class Category extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $table = 'customers';
+    protected $table = 'categories';
     protected $guarded = [];
 
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

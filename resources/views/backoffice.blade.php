@@ -4,8 +4,6 @@
 @endsection
 @section('content')
     <div class="container">
-
-
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -30,14 +28,12 @@
                                 <th scope="col">Weight</th>
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Availability</th>
-                                <th scope="col">Category</th>
+                                <th scope="col">category_id</th>
                                 <th scope="col">Taste</th>
-
                             </tr>
                             </thead>
                             <tbody class="customtable">
                             @foreach($products as $value)
-
                                 <tr>
                                 <th>
                                     <form action="/backoffice/edit/{{$value->id}}">
@@ -56,10 +52,8 @@
                                 <td><img src="{{$value->image}}" alt=""></td>
                                 <td>{{$value->weight}}</td>
                                 <td>{{$value->quantity}}</td>
-                                <td>{{$value->avaiability}}</td>
-                                <td>{{$value->category}}</td>
+                                <td>{{$value->category_id}}</td>
                                 <td>{{$value->taste}}</td>
-
                             </tr>
                             @endforeach
                             </tbody>
@@ -68,6 +62,5 @@
                 </div>
             </div>
         </div>
-
     </div>
 @endsection

@@ -49,8 +49,7 @@ class BackofficeController extends Controller
             'image' => $request->input('image'),
             'weight' => $request->input('weight'),
             'quantity' => $request->input('quantity'),
-            'availability' => $request->input('availability'),
-            'category' => $request->input('category'),
+            'category_id_id' => $request->input('category_id_id'),
             'taste' => $request->input('taste')
         ]);
         return redirect()->route('update', ['id' => $id])->with('success', 'Product updated successfully');
@@ -90,8 +89,7 @@ class BackofficeController extends Controller
             'image' => $request->input('image'),
             'weight' => $request->input('weight'),
             'quantity' => $request->input('quantity'),
-            'availability' => $request->input('availability'),
-            'category' => $request->input('category'),
+            'category_id_id' => $request->input('category_id_id'),
             'taste' => $request->input('taste')
         ]);
         return redirect()->route('backofficelanding');
@@ -101,11 +99,11 @@ class BackofficeController extends Controller
     public function customer($id)
     {
 
-        return view('customer-edit', ["client" => customer::findorfail($id)]);
+        return view('customer-edit', ["client" => Customer::findorfail($id)]);
     }
     function showcustomer()
     {
-        return view('customers', ["client" => customer::all()]);
+        return view('customers', ["client" => Customer::all()]);
     }
     function addcustomer(Request $request)
     {

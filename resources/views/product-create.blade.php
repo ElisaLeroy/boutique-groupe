@@ -42,9 +42,7 @@
                                         </li>
                                         <li class="list-group-item">quantity : <br><input type="text" name="quantity" placeholder="quantity">
                                         </li>
-                                        <li class="list-group-item">availability : <br><input type="text" name="availability" placeholder="availability">
-                                        </li>
-                                        <li class="list-group-item">category : <br><input type="text" name="category" placeholder="category">
+                                        <li class="list-group-item">category_id : <br><input type="text" name="category_id" placeholder="category_id">
                                         </li>
                                         <li class="list-group-item">taste : <br><input type="text" name="taste" placeholder="taste">
                                         </li>
