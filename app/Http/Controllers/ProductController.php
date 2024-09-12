@@ -27,21 +27,13 @@ class ProductController extends Controller
         return view("product-list", ["products" => Product::orderBy($page, 'asc')->get()]);
 
     }
-
-//    public function show(int $id)
-//    {
-////        $datas=DB::select('select * from products WHERE id = :id', ['id' => $id]);
-////        $datas=DB::table('products')->where('id', '=', $id)->get();
-//
-//        return view("product-details", ["product" => Product::findOrFail($id)
-//        ]);
-//    }//
     public function show($id)
     {
+//        $datas=DB::select('select * from products WHERE id = :id', ['id' => $id]);
+//        $datas=DB::table('products')->where('id', '=', $id)->get();
         $product = Product::findOrFail($id);
-        // Ensure the relationship is loaded correctly
         $category = $product->category;
 
-        return view('product-details', compact('product', 'category'));
+        return view('product-details', ['product' => $product, 'category' => $category]);
     }
 }

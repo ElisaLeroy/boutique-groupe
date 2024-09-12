@@ -10,7 +10,8 @@ class BackofficeController extends Controller
 {
     public function index()
     {
-        return view('backoffice', ["products" => Product::all()]);
+        $products = Product::with('category')->get();
+        return view('backoffice', ["products" => $products]);
     }
 
     public function edit($id)
@@ -31,17 +32,14 @@ class BackofficeController extends Controller
     }
     public function update(Request $request, $id)
     {
-        //var errors
-
         $request->validate([
             'name' => 'required|max:255',
             'description' => 'nullable',
             'price' => 'numeric|min:0',
         ]);
-//        $validatedData = $this->verif($request);
+
         $product = Product::findOrFail($id);
 
-//        $product->update($validatedData);
         $product->update([
             'name' => $request->input('name'),
             'description' => $request->input('description'),

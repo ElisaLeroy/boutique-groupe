@@ -3,7 +3,6 @@
     product-list
 @endsection
 @section('content')
-@dump($products)
     <div class="container mt-5">
         <div class="row">
             <div class="col text-center">
@@ -30,7 +29,10 @@
                             <h5 class="card-title">{{$product->name}}</h5>
                             <p class="card-text">{{$product->description}}</p>
                             <a href="/product/{{$product->id}}" class="btn btn-primary">View Details</a>
-
+                            <form action="" method="post">
+                                <input type="number" min="0">
+                                <button type="submit">ADD CART</button>
+                            </form>
                             <p class="card-text">{{$product->price}}</p>
                         </div>
                     </div>

@@ -27,34 +27,33 @@
                                 <th scope="col">Image</th>
                                 <th scope="col">Weight</th>
                                 <th scope="col">Quantity</th>
-                                <th scope="col">Availability</th>
                                 <th scope="col">category_id</th>
                                 <th scope="col">Taste</th>
                             </tr>
                             </thead>
                             <tbody class="customtable">
-                            @foreach($products as $value)
+                            @foreach($products as $product)
                                 <tr>
-                                <th>
-                                    <form action="/backoffice/edit/{{$value->id}}">
-                                        <button>Modifier</button>
-                                    </form>
-                                    <form action="/backoffice/delete/{{$value->id}}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit">Delete</button>
-                                    </form>
-                                </th>
-                                <td>{{$value->id}}</td>
-                                <td>{{$value->name}}</td>
-                                <td>{{$value->description}}</td>
-                                <td>{{$value->price}}</td>
-                                <td><img src="{{$value->image}}" alt=""></td>
-                                <td>{{$value->weight}}</td>
-                                <td>{{$value->quantity}}</td>
-                                <td>{{$value->category_id}}</td>
-                                <td>{{$value->taste}}</td>
-                            </tr>
+                                    <th>
+                                        <form action="/backoffice/edit/{{$product->id}}">
+                                            <button>Modifier</button>
+                                        </form>
+                                        <form action="/backoffice/delete/{{$product->id}}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit">Delete</button>
+                                        </form>
+                                    </th>
+                                    <td>{{$product->id}}</td>
+                                    <td>{{$product->name}}</td>
+                                    <td>{{$product->description}}</td>
+                                    <td>{{$product->price}}</td>
+                                    <td><img src="{{$product->image}}" alt=""></td>
+                                    <td>{{$product->weight}}</td>
+                                    <td>{{$product->quantity}}</td>
+                                    <td>{{$product->category->type}}</td>
+                                    <td>{{$product->taste}}</td>
+                                </tr>
                             @endforeach
                             </tbody>
                         </table>
